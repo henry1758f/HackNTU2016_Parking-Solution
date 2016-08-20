@@ -22,9 +22,256 @@ Partial Class Form1
     '請勿使用程式碼編輯器進行修改。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.components = New System.ComponentModel.Container()
+        Me.HackParkingNTUDataSet = New ParkingHack.HackParkingNTUDataSet()
+        Me.車位資料BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.車位資料TableAdapter = New ParkingHack.HackParkingNTUDataSetTableAdapters.車位資料TableAdapter()
+        Me.HackParkingNTUDataSet1 = New ParkingHack.HackParkingNTUDataSet1()
+        Me.車位資料全BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.車位資料_全TableAdapter = New ParkingHack.HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter()
+        Me.DataGridView_all_park = New System.Windows.Forms.DataGridView()
+        Me.識別碼DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.編號DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車位類型DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車位型態DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車位狀況DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.行政區DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.道路DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LatitudeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LongitudeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.費率DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.服務時間DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.服務時間結束DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車格施工日期DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車格塗銷日期DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.收費時段DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.收費時段結束DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.累進費率DataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.修改人DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.備註DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.修改時間DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button_UD2Server = New System.Windows.Forms.Button()
+        CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.車位資料BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView_all_park, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'HackParkingNTUDataSet
+        '
+        Me.HackParkingNTUDataSet.DataSetName = "HackParkingNTUDataSet"
+        Me.HackParkingNTUDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        '車位資料BindingSource
+        '
+        Me.車位資料BindingSource.DataMember = "車位資料"
+        Me.車位資料BindingSource.DataSource = Me.HackParkingNTUDataSet
+        '
+        '車位資料TableAdapter
+        '
+        Me.車位資料TableAdapter.ClearBeforeFill = True
+        '
+        'HackParkingNTUDataSet1
+        '
+        Me.HackParkingNTUDataSet1.DataSetName = "HackParkingNTUDataSet1"
+        Me.HackParkingNTUDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        '車位資料全BindingSource
+        '
+        Me.車位資料全BindingSource.DataMember = "車位資料_全"
+        Me.車位資料全BindingSource.DataSource = Me.HackParkingNTUDataSet1
+        '
+        '車位資料_全TableAdapter
+        '
+        Me.車位資料_全TableAdapter.ClearBeforeFill = True
+        '
+        'DataGridView_all_park
+        '
+        Me.DataGridView_all_park.AutoGenerateColumns = False
+        Me.DataGridView_all_park.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_all_park.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.識別碼DataGridViewTextBoxColumn, Me.編號DataGridViewTextBoxColumn, Me.車位類型DataGridViewTextBoxColumn, Me.車位型態DataGridViewTextBoxColumn, Me.車位狀況DataGridViewTextBoxColumn, Me.行政區DataGridViewTextBoxColumn, Me.道路DataGridViewTextBoxColumn, Me.LatitudeDataGridViewTextBoxColumn, Me.LongitudeDataGridViewTextBoxColumn, Me.費率DataGridViewTextBoxColumn, Me.服務時間DataGridViewTextBoxColumn, Me.服務時間結束DataGridViewTextBoxColumn, Me.車格施工日期DataGridViewTextBoxColumn, Me.車格塗銷日期DataGridViewTextBoxColumn, Me.收費時段DataGridViewTextBoxColumn, Me.收費時段結束DataGridViewTextBoxColumn, Me.累進費率DataGridViewCheckBoxColumn, Me.修改人DataGridViewTextBoxColumn, Me.備註DataGridViewTextBoxColumn, Me.修改時間DataGridViewTextBoxColumn})
+        Me.DataGridView_all_park.DataSource = Me.車位資料全BindingSource
+        Me.DataGridView_all_park.Location = New System.Drawing.Point(12, 42)
+        Me.DataGridView_all_park.Name = "DataGridView_all_park"
+        Me.DataGridView_all_park.RowTemplate.Height = 27
+        Me.DataGridView_all_park.Size = New System.Drawing.Size(1323, 158)
+        Me.DataGridView_all_park.TabIndex = 0
+        '
+        '識別碼DataGridViewTextBoxColumn
+        '
+        Me.識別碼DataGridViewTextBoxColumn.DataPropertyName = "識別碼"
+        Me.識別碼DataGridViewTextBoxColumn.HeaderText = "識別碼"
+        Me.識別碼DataGridViewTextBoxColumn.Name = "識別碼DataGridViewTextBoxColumn"
+        '
+        '編號DataGridViewTextBoxColumn
+        '
+        Me.編號DataGridViewTextBoxColumn.DataPropertyName = "編號"
+        Me.編號DataGridViewTextBoxColumn.HeaderText = "編號"
+        Me.編號DataGridViewTextBoxColumn.Name = "編號DataGridViewTextBoxColumn"
+        '
+        '車位類型DataGridViewTextBoxColumn
+        '
+        Me.車位類型DataGridViewTextBoxColumn.DataPropertyName = "車位類型"
+        Me.車位類型DataGridViewTextBoxColumn.HeaderText = "車位類型"
+        Me.車位類型DataGridViewTextBoxColumn.Name = "車位類型DataGridViewTextBoxColumn"
+        '
+        '車位型態DataGridViewTextBoxColumn
+        '
+        Me.車位型態DataGridViewTextBoxColumn.DataPropertyName = "車位型態"
+        Me.車位型態DataGridViewTextBoxColumn.HeaderText = "車位型態"
+        Me.車位型態DataGridViewTextBoxColumn.Name = "車位型態DataGridViewTextBoxColumn"
+        '
+        '車位狀況DataGridViewTextBoxColumn
+        '
+        Me.車位狀況DataGridViewTextBoxColumn.DataPropertyName = "車位狀況"
+        Me.車位狀況DataGridViewTextBoxColumn.HeaderText = "車位狀況"
+        Me.車位狀況DataGridViewTextBoxColumn.Name = "車位狀況DataGridViewTextBoxColumn"
+        '
+        '行政區DataGridViewTextBoxColumn
+        '
+        Me.行政區DataGridViewTextBoxColumn.DataPropertyName = "行政區"
+        Me.行政區DataGridViewTextBoxColumn.HeaderText = "行政區"
+        Me.行政區DataGridViewTextBoxColumn.Name = "行政區DataGridViewTextBoxColumn"
+        '
+        '道路DataGridViewTextBoxColumn
+        '
+        Me.道路DataGridViewTextBoxColumn.DataPropertyName = "道路"
+        Me.道路DataGridViewTextBoxColumn.HeaderText = "道路"
+        Me.道路DataGridViewTextBoxColumn.Name = "道路DataGridViewTextBoxColumn"
+        '
+        'LatitudeDataGridViewTextBoxColumn
+        '
+        Me.LatitudeDataGridViewTextBoxColumn.DataPropertyName = "Latitude"
+        Me.LatitudeDataGridViewTextBoxColumn.HeaderText = "Latitude"
+        Me.LatitudeDataGridViewTextBoxColumn.Name = "LatitudeDataGridViewTextBoxColumn"
+        '
+        'LongitudeDataGridViewTextBoxColumn
+        '
+        Me.LongitudeDataGridViewTextBoxColumn.DataPropertyName = "Longitude"
+        Me.LongitudeDataGridViewTextBoxColumn.HeaderText = "Longitude"
+        Me.LongitudeDataGridViewTextBoxColumn.Name = "LongitudeDataGridViewTextBoxColumn"
+        '
+        '費率DataGridViewTextBoxColumn
+        '
+        Me.費率DataGridViewTextBoxColumn.DataPropertyName = "費率"
+        Me.費率DataGridViewTextBoxColumn.HeaderText = "費率"
+        Me.費率DataGridViewTextBoxColumn.Name = "費率DataGridViewTextBoxColumn"
+        '
+        '服務時間DataGridViewTextBoxColumn
+        '
+        Me.服務時間DataGridViewTextBoxColumn.DataPropertyName = "服務時間"
+        Me.服務時間DataGridViewTextBoxColumn.HeaderText = "服務時間"
+        Me.服務時間DataGridViewTextBoxColumn.Name = "服務時間DataGridViewTextBoxColumn"
+        '
+        '服務時間結束DataGridViewTextBoxColumn
+        '
+        Me.服務時間結束DataGridViewTextBoxColumn.DataPropertyName = "服務時間結束"
+        Me.服務時間結束DataGridViewTextBoxColumn.HeaderText = "服務時間結束"
+        Me.服務時間結束DataGridViewTextBoxColumn.Name = "服務時間結束DataGridViewTextBoxColumn"
+        '
+        '車格施工日期DataGridViewTextBoxColumn
+        '
+        Me.車格施工日期DataGridViewTextBoxColumn.DataPropertyName = "車格施工日期"
+        Me.車格施工日期DataGridViewTextBoxColumn.HeaderText = "車格施工日期"
+        Me.車格施工日期DataGridViewTextBoxColumn.Name = "車格施工日期DataGridViewTextBoxColumn"
+        '
+        '車格塗銷日期DataGridViewTextBoxColumn
+        '
+        Me.車格塗銷日期DataGridViewTextBoxColumn.DataPropertyName = "車格塗銷日期"
+        Me.車格塗銷日期DataGridViewTextBoxColumn.HeaderText = "車格塗銷日期"
+        Me.車格塗銷日期DataGridViewTextBoxColumn.Name = "車格塗銷日期DataGridViewTextBoxColumn"
+        '
+        '收費時段DataGridViewTextBoxColumn
+        '
+        Me.收費時段DataGridViewTextBoxColumn.DataPropertyName = "收費時段"
+        Me.收費時段DataGridViewTextBoxColumn.HeaderText = "收費時段"
+        Me.收費時段DataGridViewTextBoxColumn.Name = "收費時段DataGridViewTextBoxColumn"
+        '
+        '收費時段結束DataGridViewTextBoxColumn
+        '
+        Me.收費時段結束DataGridViewTextBoxColumn.DataPropertyName = "收費時段結束"
+        Me.收費時段結束DataGridViewTextBoxColumn.HeaderText = "收費時段結束"
+        Me.收費時段結束DataGridViewTextBoxColumn.Name = "收費時段結束DataGridViewTextBoxColumn"
+        '
+        '累進費率DataGridViewCheckBoxColumn
+        '
+        Me.累進費率DataGridViewCheckBoxColumn.DataPropertyName = "累進費率"
+        Me.累進費率DataGridViewCheckBoxColumn.HeaderText = "累進費率"
+        Me.累進費率DataGridViewCheckBoxColumn.Name = "累進費率DataGridViewCheckBoxColumn"
+        '
+        '修改人DataGridViewTextBoxColumn
+        '
+        Me.修改人DataGridViewTextBoxColumn.DataPropertyName = "修改人"
+        Me.修改人DataGridViewTextBoxColumn.HeaderText = "修改人"
+        Me.修改人DataGridViewTextBoxColumn.Name = "修改人DataGridViewTextBoxColumn"
+        '
+        '備註DataGridViewTextBoxColumn
+        '
+        Me.備註DataGridViewTextBoxColumn.DataPropertyName = "備註"
+        Me.備註DataGridViewTextBoxColumn.HeaderText = "備註"
+        Me.備註DataGridViewTextBoxColumn.Name = "備註DataGridViewTextBoxColumn"
+        '
+        '修改時間DataGridViewTextBoxColumn
+        '
+        Me.修改時間DataGridViewTextBoxColumn.DataPropertyName = "修改時間"
+        Me.修改時間DataGridViewTextBoxColumn.HeaderText = "修改時間"
+        Me.修改時間DataGridViewTextBoxColumn.Name = "修改時間DataGridViewTextBoxColumn"
+        '
+        'Button_UD2Server
+        '
+        Me.Button_UD2Server.Enabled = False
+        Me.Button_UD2Server.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Button_UD2Server.Location = New System.Drawing.Point(1032, 222)
+        Me.Button_UD2Server.Name = "Button_UD2Server"
+        Me.Button_UD2Server.Size = New System.Drawing.Size(291, 44)
+        Me.Button_UD2Server.TabIndex = 1
+        Me.Button_UD2Server.Text = "Update Data to Server"
+        Me.Button_UD2Server.UseVisualStyleBackColor = True
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1359, 480)
+        Me.Controls.Add(Me.Button_UD2Server)
+        Me.Controls.Add(Me.DataGridView_all_park)
+        Me.Name = "Form1"
         Me.Text = "Form1"
-    End Sub
+        CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.車位資料BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView_all_park, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
 
+    End Sub
+    Friend WithEvents HackParkingNTUDataSet As HackParkingNTUDataSet
+    Friend WithEvents 車位資料BindingSource As BindingSource
+    Friend WithEvents 車位資料TableAdapter As HackParkingNTUDataSetTableAdapters.車位資料TableAdapter
+    Friend WithEvents HackParkingNTUDataSet1 As HackParkingNTUDataSet1
+    Friend WithEvents 車位資料全BindingSource As BindingSource
+    Friend WithEvents 車位資料_全TableAdapter As HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter
+    Friend WithEvents DataGridView_all_park As DataGridView
+    Friend WithEvents 識別碼DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 編號DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 車位類型DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 車位型態DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 車位狀況DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 行政區DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 道路DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LatitudeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LongitudeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 費率DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 服務時間DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 服務時間結束DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 車格施工日期DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 車格塗銷日期DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 收費時段DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 收費時段結束DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 累進費率DataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
+    Friend WithEvents 修改人DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 備註DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents 修改時間DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button_UD2Server As Button
 End Class
