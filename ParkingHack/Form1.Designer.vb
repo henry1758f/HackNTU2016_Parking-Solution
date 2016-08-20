@@ -23,6 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.HackParkingNTUDataSet = New ParkingHack.HackParkingNTUDataSet()
         Me.車位資料BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.車位資料TableAdapter = New ParkingHack.HackParkingNTUDataSetTableAdapters.車位資料TableAdapter()
@@ -30,6 +33,10 @@ Partial Class Form1
         Me.車位資料全BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.車位資料_全TableAdapter = New ParkingHack.HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter()
         Me.DataGridView_all_park = New System.Windows.Forms.DataGridView()
+        Me.Button_UD2Server = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button_Refresh = New System.Windows.Forms.Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.識別碼DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.編號DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.車位類型DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,10 +57,6 @@ Partial Class Form1
         Me.修改人DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.備註DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.修改時間DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button_UD2Server = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button_Refresh = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.車位資料BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +95,14 @@ Partial Class Form1
         'DataGridView_all_park
         '
         Me.DataGridView_all_park.AutoGenerateColumns = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("微軟正黑體", 8.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView_all_park.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView_all_park.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_all_park.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.識別碼DataGridViewTextBoxColumn, Me.編號DataGridViewTextBoxColumn, Me.車位類型DataGridViewTextBoxColumn, Me.車位型態DataGridViewTextBoxColumn, Me.車位狀況DataGridViewTextBoxColumn, Me.行政區DataGridViewTextBoxColumn, Me.道路DataGridViewTextBoxColumn, Me.LatitudeDataGridViewTextBoxColumn, Me.LongitudeDataGridViewTextBoxColumn, Me.費率DataGridViewTextBoxColumn, Me.服務時間DataGridViewTextBoxColumn, Me.服務時間結束DataGridViewTextBoxColumn, Me.車格施工日期DataGridViewTextBoxColumn, Me.車格塗銷日期DataGridViewTextBoxColumn, Me.收費時段DataGridViewTextBoxColumn, Me.收費時段結束DataGridViewTextBoxColumn, Me.累進費率DataGridViewCheckBoxColumn, Me.修改人DataGridViewTextBoxColumn, Me.備註DataGridViewTextBoxColumn, Me.修改時間DataGridViewTextBoxColumn})
         Me.DataGridView_all_park.DataSource = Me.車位資料全BindingSource
@@ -101,11 +112,52 @@ Partial Class Form1
         Me.DataGridView_all_park.Size = New System.Drawing.Size(1323, 505)
         Me.DataGridView_all_park.TabIndex = 0
         '
+        'Button_UD2Server
+        '
+        Me.Button_UD2Server.Enabled = False
+        Me.Button_UD2Server.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Button_UD2Server.Location = New System.Drawing.Point(1056, 579)
+        Me.Button_UD2Server.Name = "Button_UD2Server"
+        Me.Button_UD2Server.Size = New System.Drawing.Size(291, 44)
+        Me.Button_UD2Server.TabIndex = 1
+        Me.Button_UD2Server.Text = "Update Data to Server"
+        Me.Button_UD2Server.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Button1.Location = New System.Drawing.Point(433, 579)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(291, 44)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Update Data to Server"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button_Refresh
+        '
+        Me.Button_Refresh.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
+        Me.Button_Refresh.Location = New System.Drawing.Point(739, 579)
+        Me.Button_Refresh.Name = "Button_Refresh"
+        Me.Button_Refresh.Size = New System.Drawing.Size(291, 44)
+        Me.Button_Refresh.TabIndex = 3
+        Me.Button_Refresh.Text = "Refresh Database"
+        Me.Button_Refresh.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 3000
+        '
         '識別碼DataGridViewTextBoxColumn
         '
         Me.識別碼DataGridViewTextBoxColumn.DataPropertyName = "識別碼"
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.識別碼DataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.識別碼DataGridViewTextBoxColumn.Frozen = True
         Me.識別碼DataGridViewTextBoxColumn.HeaderText = "識別碼"
         Me.識別碼DataGridViewTextBoxColumn.Name = "識別碼DataGridViewTextBoxColumn"
+        Me.識別碼DataGridViewTextBoxColumn.ReadOnly = True
+        Me.識別碼DataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.識別碼DataGridViewTextBoxColumn.Width = 80
         '
         '編號DataGridViewTextBoxColumn
         '
@@ -221,44 +273,6 @@ Partial Class Form1
         Me.修改時間DataGridViewTextBoxColumn.HeaderText = "修改時間"
         Me.修改時間DataGridViewTextBoxColumn.Name = "修改時間DataGridViewTextBoxColumn"
         '
-        'Button_UD2Server
-        '
-        Me.Button_UD2Server.Enabled = False
-        Me.Button_UD2Server.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button_UD2Server.Location = New System.Drawing.Point(1056, 579)
-        Me.Button_UD2Server.Name = "Button_UD2Server"
-        Me.Button_UD2Server.Size = New System.Drawing.Size(291, 44)
-        Me.Button_UD2Server.TabIndex = 1
-        Me.Button_UD2Server.Text = "Update Data to Server"
-        Me.Button_UD2Server.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Enabled = False
-        Me.Button1.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button1.Location = New System.Drawing.Point(433, 579)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(291, 44)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Update Data to Server"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button_Refresh
-        '
-        Me.Button_Refresh.Enabled = False
-        Me.Button_Refresh.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button_Refresh.Location = New System.Drawing.Point(739, 579)
-        Me.Button_Refresh.Name = "Button_Refresh"
-        Me.Button_Refresh.Size = New System.Drawing.Size(291, 44)
-        Me.Button_Refresh.TabIndex = 3
-        Me.Button_Refresh.Text = "Refresh Database"
-        Me.Button_Refresh.UseVisualStyleBackColor = True
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
@@ -268,6 +282,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button_UD2Server)
         Me.Controls.Add(Me.DataGridView_all_park)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -285,6 +300,10 @@ Partial Class Form1
     Friend WithEvents 車位資料全BindingSource As BindingSource
     Friend WithEvents 車位資料_全TableAdapter As HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter
     Friend WithEvents DataGridView_all_park As DataGridView
+    Friend WithEvents Button_UD2Server As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button_Refresh As Button
+    Friend WithEvents Timer1 As Timer
     Friend WithEvents 識別碼DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 編號DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 車位類型DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -305,8 +324,4 @@ Partial Class Form1
     Friend WithEvents 修改人DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 備註DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 修改時間DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Button_UD2Server As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button_Refresh As Button
-    Friend WithEvents Timer1 As Timer
 End Class
