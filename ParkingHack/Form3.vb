@@ -21,7 +21,7 @@ Public Class Form3
     Private Sub ComboBox_ID_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_ID.SelectedIndexChanged
         If ComboBox_column.Text IsNot vbNullString Then
             Try
-                TextBox_pre.Text = CustomersDataSet.Tables("車位資料_全").Rows(ComboBox_ID.Text)(ComboBox_column.Text)
+                TextBox_pre.Text = CustomersDataSet.Tables("車位資料_全").Rows(ComboBox_ID.Text - 1)(ComboBox_column.Text)
             Catch ex As Exception
 
             End Try
@@ -53,7 +53,7 @@ Public Class Form3
     Private Sub ComboBox_column_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_column.SelectedIndexChanged
         If ComboBox_column.Text IsNot vbNullString Then
             Try
-                TextBox_pre.Text = CustomersDataSet.Tables("車位資料_全").Rows(ComboBox_ID.Text)(ComboBox_column.Text)
+                TextBox_pre.Text = CustomersDataSet.Tables("車位資料_全").Rows(ComboBox_ID.Text - 1)(ComboBox_column.Text)
             Catch ex As Exception
 
             End Try

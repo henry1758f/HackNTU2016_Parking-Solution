@@ -108,7 +108,6 @@ Partial Class Form1
         Me.識別碼DataGridViewTextBoxColumn.Frozen = True
         Me.識別碼DataGridViewTextBoxColumn.HeaderText = "識別碼"
         Me.識別碼DataGridViewTextBoxColumn.Name = "識別碼DataGridViewTextBoxColumn"
-        Me.識別碼DataGridViewTextBoxColumn.ReadOnly = True
         Me.識別碼DataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.識別碼DataGridViewTextBoxColumn.Width = 80
         '

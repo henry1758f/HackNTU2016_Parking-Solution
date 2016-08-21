@@ -17,8 +17,13 @@
         ElseIf res = 2 Then
             Close()
         Else
-            Form1.車位資料_全TableAdapter.Insert(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text, TextBox8.Text, TextBox9.Text, TextBox10.Text, TextBox11.Text, TextBox12.Text, TextBox13.Text, TextBox14.Text, TextBox15.Text, TextBox16.Text, TextBox17.Text, TextBox18.Text, TextBox19.Text, TextBox20.Text)
-            Close()
+            Try
+                Form1.車位資料_全TableAdapter.Insert(TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text, TextBox8.Text, TextBox9.Text, TextBox10.Text, TextBox11.Text, TextBox12.Text, TextBox13.Text, TextBox14.Text, TextBox15.Text, TextBox16.Text, TextBox17.Text, TextBox18.Text, TextBox19.Text, TextBox20.Text)
+                Close()
+            Catch ex As Exception
+                MsgBox("請檢查是否有資料格式錯誤或未填的情形!", MsgBoxStyle.Critical, "資料庫寫入失敗")
+            End Try
+
         End If
     End Sub
 End Class

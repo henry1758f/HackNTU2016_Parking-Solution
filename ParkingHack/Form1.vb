@@ -21,25 +21,22 @@ Public Class Form1
         '車位資料_全TableAdapter.Insert(33, "T0000001", 1, 1, 0, 0, "sss", 100, 100, 100, 100, 100, "2002/2/2", "2001/1/1", 100, 100, 100, "100", 100, "2006/8/7")
         '車位資料_全TableAdapter.Update(DataGridView_all_park.DataSource)
         Me.車位資料_全TableAdapter.Fill(Me.HackParkingNTUDataSet1.車位資料_全)
+        Label_DataTime.Text = "資料時間:" + DateString + TimeOfDay
     End Sub
-
-    Private Sub DataGridView_all_park_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_all_park.CellValueChanged
-        Button_UD2Server.Enabled = True
-
-    End Sub
-
     Private Sub Button_Refresh_Click(sender As Object, e As EventArgs) Handles Button_Refresh.Click
         Me.車位資料_全TableAdapter.Fill(HackParkingNTUDataSet1.車位資料_全)
-
         Label_DataTime.Text = "資料時間:" + DateString + TimeOfDay
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Me.車位資料_全TableAdapter.Fill(Me.HackParkingNTUDataSet1.車位資料_全)
+        Label_DataTime.Text = "資料時間:" + DateString + TimeOfDay
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         NForm3.ShowDialog(Me)
+        Me.車位資料_全TableAdapter.Fill(Me.HackParkingNTUDataSet1.車位資料_全)
+        Label_DataTime.Text = "資料時間:" + DateString + TimeOfDay
 
         'Dim command As SqlCommand = New SqlCommand("ALTER TABLE Customer ADD PRIMARY KEY (SID);")
         'Using connection As New SqlConnection("Server=tcp:hackparkingntu.database.windows.net,1433;Initial Catalog=HackParkingNTU;Persist Security Info=False;User ID=henry1758f;Password=HackNTU1995/03/29;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
