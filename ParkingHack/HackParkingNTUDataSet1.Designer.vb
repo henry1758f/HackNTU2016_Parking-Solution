@@ -556,7 +556,6 @@ Partial Public Class HackParkingNTUDataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Function Add車位資料_全Row( _
-                    ByVal 識別碼 As Double,  _
                     ByVal 編號 As String,  _
                     ByVal 車位類型 As Double,  _
                     ByVal 車位型態 As Double,  _
@@ -577,7 +576,7 @@ Partial Public Class HackParkingNTUDataSet1
                     ByVal 備註 As String,  _
                     ByVal 修改時間 As Date) As 車位資料_全Row
             Dim row車位資料_全Row As 車位資料_全Row = CType(Me.NewRow,車位資料_全Row)
-            Dim columnValuesArray() As Object = New Object() {識別碼, 編號, 車位類型, 車位型態, 車位狀況, 行政區, 道路, Latitude, Longitude, 費率, 服務時間, 服務時間結束, 車格施工日期, 車格塗銷日期, 收費時段, 收費時段結束, 累進費率, 修改人, 備註, 修改時間}
+            Dim columnValuesArray() As Object = New Object() {Nothing, 編號, 車位類型, 車位型態, 車位狀況, 行政區, 道路, Latitude, Longitude, 費率, 服務時間, 服務時間結束, 車格施工日期, 車格塗銷日期, 收費時段, 收費時段結束, 累進費率, 修改人, 備註, 修改時間}
             row車位資料_全Row.ItemArray = columnValuesArray
             Me.Rows.Add(row車位資料_全Row)
             Return row車位資料_全Row
@@ -625,7 +624,7 @@ Partial Public Class HackParkingNTUDataSet1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.column識別碼 = New Global.System.Data.DataColumn("識別碼", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            Me.column識別碼 = New Global.System.Data.DataColumn("識別碼", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.column識別碼)
             Me.column編號 = New Global.System.Data.DataColumn("編號", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.column編號)
@@ -665,6 +664,13 @@ Partial Public Class HackParkingNTUDataSet1
             MyBase.Columns.Add(Me.column備註)
             Me.column修改時間 = New Global.System.Data.DataColumn("修改時間", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.column修改時間)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.column識別碼}, false))
+            Me.column識別碼.AutoIncrement = true
+            Me.column識別碼.AutoIncrementSeed = -1
+            Me.column識別碼.AutoIncrementStep = -1
+            Me.column識別碼.AllowDBNull = false
+            Me.column識別碼.ReadOnly = true
+            Me.column識別碼.Unique = true
             Me.column編號.MaxLength = 255
             Me.column道路.MaxLength = 255
             Me.column修改人.MaxLength = 255
@@ -815,13 +821,9 @@ Partial Public Class HackParkingNTUDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property 識別碼() As Double
+        Public Property 識別碼() As Integer
             Get
-                Try 
-                    Return CType(Me(Me.table車位資料_全.識別碼Column),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("資料表 '車位資料_全' 中資料行 '識別碼' 的值是 DBNull。", e)
-                End Try
+                Return CType(Me(Me.table車位資料_全.識別碼Column),Integer)
             End Get
             Set
                 Me(Me.table車位資料_全.識別碼Column) = value
@@ -1112,18 +1114,6 @@ Partial Public Class HackParkingNTUDataSet1
                 Me(Me.table車位資料_全.修改時間Column) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function Is識別碼Null() As Boolean
-            Return Me.IsNull(Me.table車位資料_全.識別碼Column)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub Set識別碼Null()
-            Me(Me.table車位資料_全.識別碼Column) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1646,7 +1636,7 @@ Namespace HackParkingNTUDataSet1TableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert( _
-                    ByVal 識別碼 As Global.System.Nullable(Of Double),  _
+                    ByVal 識別碼 As Double,  _
                     ByVal 編號 As String,  _
                     ByVal 車位類型 As Global.System.Nullable(Of Double),  _
                     ByVal 車位型態 As Global.System.Nullable(Of Double),  _
@@ -1666,11 +1656,7 @@ Namespace HackParkingNTUDataSet1TableAdapters
                     ByVal 修改人 As String,  _
                     ByVal 備註 As String,  _
                     ByVal 修改時間 As Global.System.Nullable(Of Date)) As Integer
-            If (識別碼.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(識別碼.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(識別碼,Double)
             If (編號 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else

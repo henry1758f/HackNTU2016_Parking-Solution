@@ -29,9 +29,6 @@ Partial Class Form1
         Me.HackParkingNTUDataSet = New ParkingHack.HackParkingNTUDataSet()
         Me.車位資料BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.車位資料TableAdapter = New ParkingHack.HackParkingNTUDataSetTableAdapters.車位資料TableAdapter()
-        Me.HackParkingNTUDataSet1 = New ParkingHack.HackParkingNTUDataSet1()
-        Me.車位資料全BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.車位資料_全TableAdapter = New ParkingHack.HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter()
         Me.DataGridView_all_park = New System.Windows.Forms.DataGridView()
         Me.Button_UD2Server = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -57,11 +54,15 @@ Partial Class Form1
         Me.修改人DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.備註DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.修改時間DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.車位資料全BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HackParkingNTUDataSet1 = New ParkingHack.HackParkingNTUDataSet1()
+        Me.車位資料_全TableAdapter = New ParkingHack.HackParkingNTUDataSet1TableAdapters.車位資料_全TableAdapter()
+        Me.Label_DataTime = New System.Windows.Forms.Label()
         CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.車位資料BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_all_park, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HackParkingNTUDataSet
@@ -77,20 +78,6 @@ Partial Class Form1
         '車位資料TableAdapter
         '
         Me.車位資料TableAdapter.ClearBeforeFill = True
-        '
-        'HackParkingNTUDataSet1
-        '
-        Me.HackParkingNTUDataSet1.DataSetName = "HackParkingNTUDataSet1"
-        Me.HackParkingNTUDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        '車位資料全BindingSource
-        '
-        Me.車位資料全BindingSource.DataMember = "車位資料_全"
-        Me.車位資料全BindingSource.DataSource = Me.HackParkingNTUDataSet1
-        '
-        '車位資料_全TableAdapter
-        '
-        Me.車位資料_全TableAdapter.ClearBeforeFill = True
         '
         'DataGridView_all_park
         '
@@ -116,27 +103,27 @@ Partial Class Form1
         '
         Me.Button_UD2Server.Enabled = False
         Me.Button_UD2Server.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button_UD2Server.Location = New System.Drawing.Point(1056, 579)
+        Me.Button_UD2Server.Location = New System.Drawing.Point(1032, 579)
         Me.Button_UD2Server.Name = "Button_UD2Server"
-        Me.Button_UD2Server.Size = New System.Drawing.Size(291, 44)
+        Me.Button_UD2Server.Size = New System.Drawing.Size(303, 44)
         Me.Button_UD2Server.TabIndex = 1
-        Me.Button_UD2Server.Text = "Update Data to Server"
+        Me.Button_UD2Server.Text = "Add New Data to Server"
         Me.Button_UD2Server.UseVisualStyleBackColor = True
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button1.Location = New System.Drawing.Point(433, 579)
+        Me.Button1.Location = New System.Drawing.Point(438, 579)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(291, 44)
         Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Update Data to Server"
+        Me.Button1.Text = "Set Data to Server "
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button_Refresh
         '
         Me.Button_Refresh.Font = New System.Drawing.Font("微軟正黑體", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(136, Byte))
-        Me.Button_Refresh.Location = New System.Drawing.Point(739, 579)
+        Me.Button_Refresh.Location = New System.Drawing.Point(735, 579)
         Me.Button_Refresh.Name = "Button_Refresh"
         Me.Button_Refresh.Size = New System.Drawing.Size(291, 44)
         Me.Button_Refresh.TabIndex = 3
@@ -273,11 +260,34 @@ Partial Class Form1
         Me.修改時間DataGridViewTextBoxColumn.HeaderText = "修改時間"
         Me.修改時間DataGridViewTextBoxColumn.Name = "修改時間DataGridViewTextBoxColumn"
         '
+        '車位資料全BindingSource
+        '
+        Me.車位資料全BindingSource.DataMember = "車位資料_全"
+        Me.車位資料全BindingSource.DataSource = Me.HackParkingNTUDataSet1
+        '
+        'HackParkingNTUDataSet1
+        '
+        Me.HackParkingNTUDataSet1.DataSetName = "HackParkingNTUDataSet1"
+        Me.HackParkingNTUDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        '車位資料_全TableAdapter
+        '
+        Me.車位資料_全TableAdapter.ClearBeforeFill = True
+        '
+        'Label_DataTime
+        '
+        Me.Label_DataTime.AutoSize = True
+        Me.Label_DataTime.Location = New System.Drawing.Point(732, 561)
+        Me.Label_DataTime.Name = "Label_DataTime"
+        Me.Label_DataTime.Size = New System.Drawing.Size(0, 15)
+        Me.Label_DataTime.TabIndex = 4
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1359, 635)
+        Me.Controls.Add(Me.Label_DataTime)
         Me.Controls.Add(Me.Button_Refresh)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button_UD2Server)
@@ -287,10 +297,11 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.HackParkingNTUDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.車位資料BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView_all_park, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.車位資料全BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HackParkingNTUDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents HackParkingNTUDataSet As HackParkingNTUDataSet
@@ -324,4 +335,5 @@ Partial Class Form1
     Friend WithEvents 修改人DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 備註DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents 修改時間DataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label_DataTime As Label
 End Class
