@@ -12,12 +12,12 @@ Public Class Form1
         'TODO: 這行程式碼會將資料載入 'HackParkingNTUDataSet.車位資料' 資料表。您可以視需要進行移動或移除。
         Me.車位資料TableAdapter.Fill(Me.HackParkingNTUDataSet.車位資料)
         Button_UD2Server.Enabled = True
-
+        Label_DataTime.Text = "資料時間:" + DateString + TimeOfDay
 
     End Sub
 
     Private Sub Button_UD2Server_Click(sender As Object, e As EventArgs) Handles Button_UD2Server.Click
-        NForm2.Show()
+        NForm2.ShowDialog(Me)
         '車位資料_全TableAdapter.Insert(33, "T0000001", 1, 1, 0, 0, "sss", 100, 100, 100, 100, 100, "2002/2/2", "2001/1/1", 100, 100, 100, "100", 100, "2006/8/7")
         '車位資料_全TableAdapter.Update(DataGridView_all_park.DataSource)
         Me.車位資料_全TableAdapter.Fill(Me.HackParkingNTUDataSet1.車位資料_全)
@@ -39,7 +39,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        NForm3.Show()
+        NForm3.ShowDialog(Me)
 
         'Dim command As SqlCommand = New SqlCommand("ALTER TABLE Customer ADD PRIMARY KEY (SID);")
         'Using connection As New SqlConnection("Server=tcp:hackparkingntu.database.windows.net,1433;Initial Catalog=HackParkingNTU;Persist Security Info=False;User ID=henry1758f;Password=HackNTU1995/03/29;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
